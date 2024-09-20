@@ -131,6 +131,7 @@
             radioButton2.TabIndex = 6;
             radioButton2.Text = "24";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // radioButton3
             // 
@@ -141,6 +142,7 @@
             radioButton3.TabIndex = 7;
             radioButton3.Text = "30";
             radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.CheckedChanged += radioButton3_CheckedChanged;
             // 
             // radioButton4
             // 
@@ -151,6 +153,7 @@
             radioButton4.TabIndex = 8;
             radioButton4.Text = "60";
             radioButton4.UseVisualStyleBackColor = true;
+            radioButton4.CheckedChanged += radioButton4_CheckedChanged;
             // 
             // radioButton5
             // 
@@ -163,6 +166,7 @@
             radioButton5.TabStop = true;
             radioButton5.Text = "480";
             radioButton5.UseVisualStyleBackColor = true;
+            radioButton5.CheckedChanged += radioButton5_CheckedChanged;
             // 
             // radioButton6
             // 
@@ -174,6 +178,7 @@
             radioButton6.TabIndex = 11;
             radioButton6.Text = "720";
             radioButton6.UseVisualStyleBackColor = true;
+            radioButton6.CheckedChanged += radioButton6_CheckedChanged;
             // 
             // radioButton7
             // 
@@ -185,6 +190,7 @@
             radioButton7.TabIndex = 12;
             radioButton7.Text = "1080";
             radioButton7.UseVisualStyleBackColor = true;
+            radioButton7.CheckedChanged += radioButton7_CheckedChanged;
             // 
             // radioButton8
             // 
@@ -196,6 +202,7 @@
             radioButton8.TabIndex = 13;
             radioButton8.Text = "4K";
             radioButton8.UseVisualStyleBackColor = true;
+            radioButton8.CheckedChanged += radioButton8_CheckedChanged;
             // 
             // textBox2
             // 
@@ -210,7 +217,7 @@
             button2.BackColor = SystemColors.ActiveCaption;
             button2.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(549, 403);
+            button2.Location = new Point(549, 397);
             button2.Name = "button2";
             button2.Size = new Size(106, 38);
             button2.TabIndex = 15;
@@ -291,6 +298,7 @@
             radioButton9.TabIndex = 11;
             radioButton9.Text = "mkv";
             radioButton9.UseVisualStyleBackColor = true;
+            radioButton9.CheckedChanged += radioButton9_CheckedChanged;
             // 
             // radioButton10
             // 
@@ -303,6 +311,7 @@
             radioButton10.TabStop = true;
             radioButton10.Text = "mp4";
             radioButton10.UseVisualStyleBackColor = true;
+            radioButton10.CheckedChanged += radioButton10_CheckedChanged;
             // 
             // radioButton11
             // 
@@ -314,6 +323,7 @@
             radioButton11.TabIndex = 12;
             radioButton11.Text = "avi";
             radioButton11.UseVisualStyleBackColor = true;
+            radioButton11.CheckedChanged += radioButton11_CheckedChanged;
             // 
             // radioButton12
             // 
@@ -325,6 +335,7 @@
             radioButton12.TabIndex = 13;
             radioButton12.Text = "gif";
             radioButton12.UseVisualStyleBackColor = true;
+            radioButton12.CheckedChanged += radioButton12_CheckedChanged;
             // 
             // openFileDialog1
             // 
