@@ -25,6 +25,7 @@
         {
             menuStrip1 = new MenuStrip();
             settingsToolStripMenuItem = new ToolStripMenuItem();
+            darkmodeLightmodeToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             textBox1 = new TextBox();
@@ -51,6 +52,7 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             errorLabel = new Label();
             logs = new Label();
+            progressBar1 = new ProgressBar();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -68,9 +70,17 @@
             // 
             // settingsToolStripMenuItem
             // 
+            settingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { darkmodeLightmodeToolStripMenuItem });
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             settingsToolStripMenuItem.Size = new Size(61, 20);
             settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // darkmodeLightmodeToolStripMenuItem
+            // 
+            darkmodeLightmodeToolStripMenuItem.Name = "darkmodeLightmodeToolStripMenuItem";
+            darkmodeLightmodeToolStripMenuItem.Size = new Size(192, 22);
+            darkmodeLightmodeToolStripMenuItem.Text = "Darkmode/Lightmode";
+            darkmodeLightmodeToolStripMenuItem.Click += darkmodeLightmodeToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
@@ -348,12 +358,21 @@
             logs.TabIndex = 21;
             logs.Text = "Logs : ";
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(127, 448);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(528, 35);
+            progressBar1.Step = 1;
+            progressBar1.TabIndex = 22;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(834, 495);
+            Controls.Add(progressBar1);
             Controls.Add(logs);
             Controls.Add(errorLabel);
             Controls.Add(groupBox3);
@@ -413,5 +432,7 @@
         private FolderBrowserDialog folderBrowserDialog1;
         private Label errorLabel;
         private Label logs;
+        private ProgressBar progressBar1;
+        private ToolStripMenuItem darkmodeLightmodeToolStripMenuItem;
     }
 }
