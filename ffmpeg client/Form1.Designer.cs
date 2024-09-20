@@ -28,13 +28,11 @@
             helpToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             textBox1 = new TextBox();
-            label1 = new Label();
             label2 = new Label();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
             radioButton4 = new RadioButton();
-            label3 = new Label();
             radioButton5 = new RadioButton();
             radioButton6 = new RadioButton();
             radioButton7 = new RadioButton();
@@ -42,7 +40,19 @@
             textBox2 = new TextBox();
             button2 = new Button();
             button3 = new Button();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            label1 = new Label();
+            groupBox3 = new GroupBox();
+            radioButton9 = new RadioButton();
+            radioButton10 = new RadioButton();
+            radioButton11 = new RadioButton();
+            radioButton12 = new RadioButton();
+            openFileDialog1 = new OpenFileDialog();
             menuStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -86,17 +96,6 @@
             textBox1.Size = new Size(514, 23);
             textBox1.TabIndex = 2;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 100);
-            label1.Name = "label1";
-            label1.Size = new Size(44, 28);
-            label1.TabIndex = 3;
-            label1.Text = "FPS";
-            label1.Click += label1_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -110,7 +109,8 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(19, 131);
+            radioButton1.Checked = true;
+            radioButton1.Location = new Point(12, 32);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(37, 19);
             radioButton1.TabIndex = 5;
@@ -122,51 +122,38 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(62, 131);
+            radioButton2.Location = new Point(55, 32);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(37, 19);
             radioButton2.TabIndex = 6;
-            radioButton2.TabStop = true;
             radioButton2.Text = "24";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(105, 131);
+            radioButton3.Location = new Point(98, 32);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(37, 19);
             radioButton3.TabIndex = 7;
-            radioButton3.TabStop = true;
             radioButton3.Text = "30";
             radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(148, 131);
+            radioButton4.Location = new Point(141, 32);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(37, 19);
             radioButton4.TabIndex = 8;
-            radioButton4.TabStop = true;
             radioButton4.Text = "60";
             radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(273, 100);
-            label3.Name = "label3";
-            label3.Size = new Size(104, 28);
-            label3.TabIndex = 9;
-            label3.Text = "Resolution";
-            label3.Click += label3_Click;
             // 
             // radioButton5
             // 
             radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(273, 131);
+            radioButton5.Checked = true;
+            radioButton5.Location = new Point(7, 38);
             radioButton5.Name = "radioButton5";
             radioButton5.Size = new Size(43, 19);
             radioButton5.TabIndex = 10;
@@ -177,36 +164,33 @@
             // radioButton6
             // 
             radioButton6.AutoSize = true;
-            radioButton6.Location = new Point(322, 131);
+            radioButton6.Location = new Point(56, 38);
             radioButton6.Name = "radioButton6";
             radioButton6.RightToLeft = RightToLeft.No;
             radioButton6.Size = new Size(43, 19);
             radioButton6.TabIndex = 11;
-            radioButton6.TabStop = true;
             radioButton6.Text = "720";
             radioButton6.UseVisualStyleBackColor = true;
             // 
             // radioButton7
             // 
             radioButton7.AutoSize = true;
-            radioButton7.Location = new Point(371, 131);
+            radioButton7.Location = new Point(105, 38);
             radioButton7.Name = "radioButton7";
             radioButton7.RightToLeft = RightToLeft.No;
             radioButton7.Size = new Size(49, 19);
             radioButton7.TabIndex = 12;
-            radioButton7.TabStop = true;
             radioButton7.Text = "1080";
             radioButton7.UseVisualStyleBackColor = true;
             // 
             // radioButton8
             // 
             radioButton8.AutoSize = true;
-            radioButton8.Location = new Point(426, 131);
+            radioButton8.Location = new Point(160, 38);
             radioButton8.Name = "radioButton8";
             radioButton8.RightToLeft = RightToLeft.No;
             radioButton8.Size = new Size(38, 19);
             radioButton8.TabIndex = 13;
-            radioButton8.TabStop = true;
             radioButton8.Text = "4K";
             radioButton8.UseVisualStyleBackColor = true;
             // 
@@ -242,26 +226,120 @@
             button3.Text = "Start";
             button3.UseVisualStyleBackColor = false;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(radioButton3);
+            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Controls.Add(radioButton4);
+            groupBox1.Location = new Point(12, 105);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(200, 64);
+            groupBox1.TabIndex = 17;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "FPS";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(radioButton6);
+            groupBox2.Controls.Add(radioButton5);
+            groupBox2.Controls.Add(radioButton7);
+            groupBox2.Controls.Add(radioButton8);
+            groupBox2.Location = new Point(218, 105);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(200, 64);
+            groupBox2.TabIndex = 18;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Resolution";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(12, 429);
+            label1.Name = "label1";
+            label1.Size = new Size(75, 28);
+            label1.TabIndex = 19;
+            label1.Text = "Output";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(radioButton9);
+            groupBox3.Controls.Add(radioButton10);
+            groupBox3.Controls.Add(radioButton11);
+            groupBox3.Controls.Add(radioButton12);
+            groupBox3.Location = new Point(424, 105);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(217, 64);
+            groupBox3.TabIndex = 19;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Format";
+            // 
+            // radioButton9
+            // 
+            radioButton9.AutoSize = true;
+            radioButton9.Location = new Point(62, 38);
+            radioButton9.Name = "radioButton9";
+            radioButton9.RightToLeft = RightToLeft.No;
+            radioButton9.Size = new Size(48, 19);
+            radioButton9.TabIndex = 11;
+            radioButton9.Text = "mkv";
+            radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            radioButton10.AutoSize = true;
+            radioButton10.Checked = true;
+            radioButton10.Location = new Point(7, 38);
+            radioButton10.Name = "radioButton10";
+            radioButton10.Size = new Size(49, 19);
+            radioButton10.TabIndex = 10;
+            radioButton10.TabStop = true;
+            radioButton10.Text = "mp4";
+            radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            radioButton11.AutoSize = true;
+            radioButton11.Location = new Point(116, 38);
+            radioButton11.Name = "radioButton11";
+            radioButton11.RightToLeft = RightToLeft.No;
+            radioButton11.Size = new Size(40, 19);
+            radioButton11.TabIndex = 12;
+            radioButton11.Text = "avi";
+            radioButton11.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            radioButton12.AutoSize = true;
+            radioButton12.Location = new Point(162, 38);
+            radioButton12.Name = "radioButton12";
+            radioButton12.RightToLeft = RightToLeft.No;
+            radioButton12.Size = new Size(39, 19);
+            radioButton12.TabIndex = 13;
+            radioButton12.Text = "gif";
+            radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Filter = "MP4 (*.mp4)|*.mp4|All files (*.*)|*.*";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(834, 495);
+            Controls.Add(groupBox3);
+            Controls.Add(label1);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(textBox2);
-            Controls.Add(radioButton8);
-            Controls.Add(radioButton7);
-            Controls.Add(radioButton6);
-            Controls.Add(radioButton5);
-            Controls.Add(label3);
-            Controls.Add(radioButton4);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(menuStrip1);
@@ -273,6 +351,12 @@
             Text = "FFmpeg Client v1.0.0";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -282,13 +366,11 @@
         private ToolStripMenuItem helpToolStripMenuItem;
         private Button button1;
         private TextBox textBox1;
-        private Label label1;
         private Label label2;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private RadioButton radioButton3;
         private RadioButton radioButton4;
-        private Label label3;
         private RadioButton radioButton5;
         private RadioButton radioButton6;
         private RadioButton radioButton7;
@@ -296,5 +378,14 @@
         private TextBox textBox2;
         private Button button2;
         private Button button3;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private Label label1;
+        private GroupBox groupBox3;
+        private RadioButton radioButton9;
+        private RadioButton radioButton10;
+        private RadioButton radioButton11;
+        private RadioButton radioButton12;
+        private OpenFileDialog openFileDialog1;
     }
 }
