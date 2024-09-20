@@ -54,6 +54,11 @@ namespace ffmpeg_client
             CommandLineCreator.RunCommand(command);
         }
 
+        public void setLogsText(string text)
+        {
+            logs.Text = text;
+        }
+
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             outputFPS = "15";

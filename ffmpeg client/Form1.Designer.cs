@@ -50,6 +50,7 @@
             openFileDialog1 = new OpenFileDialog();
             folderBrowserDialog1 = new FolderBrowserDialog();
             errorLabel = new Label();
+            logs = new Label();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -338,12 +339,22 @@
             errorLabel.Size = new Size(0, 15);
             errorLabel.TabIndex = 20;
             // 
+            // logs
+            // 
+            logs.AutoSize = true;
+            logs.Location = new Point(24, 211);
+            logs.Name = "logs";
+            logs.Size = new Size(41, 15);
+            logs.TabIndex = 21;
+            logs.Text = "Logs : ";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(834, 495);
+            Controls.Add(logs);
             Controls.Add(errorLabel);
             Controls.Add(groupBox3);
             Controls.Add(label1);
@@ -401,5 +412,6 @@
         private OpenFileDialog openFileDialog1;
         private FolderBrowserDialog folderBrowserDialog1;
         private Label errorLabel;
+        private Label logs;
     }
 }
