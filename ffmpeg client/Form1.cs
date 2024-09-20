@@ -2,7 +2,8 @@ namespace ffmpeg_client
 {
     public partial class Form1 : Form
     {
-        private int brightnessMode = 1;
+        private SettingsPage settingsPage = new SettingsPage();
+
         private String fileLocation;
         private String outputLocation;
         private String outputFormat = "mp4";
@@ -122,16 +123,7 @@ namespace ffmpeg_client
 
         private void darkmodeLightmodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (brightnessMode == 0)
-            {
-                brightnessMode = 1;
-                BackColor = SystemColors.ActiveCaption;
-            }
-            else
-            {
-                brightnessMode = 0;
-                BackColor = Color.FromArgb(64 , 64 ,64);
-            }
+            settingsPage.setBrightnessMode(this);
         }
     }
 }
