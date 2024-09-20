@@ -13,6 +13,7 @@ namespace ffmpeg_client
         public Form1()
         {
             InitializeComponent();
+            settingsPage.initializeBrightnessMode(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
