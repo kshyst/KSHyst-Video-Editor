@@ -1,0 +1,17 @@
+S:\Coding Projects\ffmpeg client\ffmpeg client\bin\Debug\net7.0-windows\ffmpeg client.exe
+S:\Coding Projects\ffmpeg client\ffmpeg client\bin\Debug\net7.0-windows\ffmpeg client.deps.json
+S:\Coding Projects\ffmpeg client\ffmpeg client\bin\Debug\net7.0-windows\ffmpeg client.runtimeconfig.json
+S:\Coding Projects\ffmpeg client\ffmpeg client\bin\Debug\net7.0-windows\ffmpeg client.dll
+S:\Coding Projects\ffmpeg client\ffmpeg client\bin\Debug\net7.0-windows\ffmpeg client.pdb
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.csproj.AssemblyReference.cache
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg_client.Form1.resources
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.csproj.GenerateResource.cache
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.GeneratedMSBuildEditorConfig.editorconfig
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.AssemblyInfoInputs.cache
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.AssemblyInfo.cs
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.csproj.CoreCompileInputs.cache
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.dll
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\refint\ffmpeg client.dll
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.pdb
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ffmpeg client.genruntimeconfig.cache
+S:\Coding Projects\ffmpeg client\ffmpeg client\obj\Debug\net7.0-windows\ref\ffmpeg client.dll
