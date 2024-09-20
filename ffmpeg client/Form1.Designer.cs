@@ -49,6 +49,8 @@
             radioButton11 = new RadioButton();
             radioButton12 = new RadioButton();
             openFileDialog1 = new OpenFileDialog();
+            folderBrowserDialog1 = new FolderBrowserDialog();
+            errorLabel = new Label();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -91,6 +93,7 @@
             // 
             // textBox1
             // 
+            textBox1.Enabled = false;
             textBox1.Location = new Point(12, 55);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(514, 23);
@@ -196,7 +199,8 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(12, 460);
+            textBox2.Enabled = false;
+            textBox2.Location = new Point(12, 412);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(514, 23);
             textBox2.TabIndex = 14;
@@ -206,12 +210,13 @@
             button2.BackColor = SystemColors.ActiveCaption;
             button2.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(549, 451);
+            button2.Location = new Point(549, 403);
             button2.Name = "button2";
             button2.Size = new Size(106, 38);
             button2.TabIndex = 15;
             button2.Text = "Browse";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -219,12 +224,13 @@
             button3.BackgroundImageLayout = ImageLayout.None;
             button3.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
             button3.ForeColor = Color.Lime;
-            button3.Location = new Point(682, 451);
+            button3.Location = new Point(12, 445);
             button3.Name = "button3";
             button3.Size = new Size(106, 38);
             button3.TabIndex = 16;
             button3.Text = "Start";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // groupBox1
             // 
@@ -256,11 +262,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 429);
+            label1.Location = new Point(12, 381);
             label1.Name = "label1";
-            label1.Size = new Size(75, 28);
+            label1.Size = new Size(136, 28);
             label1.TabIndex = 19;
-            label1.Text = "Output";
+            label1.Text = "Output Folder";
             // 
             // groupBox3
             // 
@@ -326,12 +332,22 @@
             openFileDialog1.Filter = "MP4 (*.mp4)|*.mp4|All files (*.*)|*.*";
             openFileDialog1.FileOk += openFileDialog1_FileOk;
             // 
+            // errorLabel
+            // 
+            errorLabel.AutoSize = true;
+            errorLabel.ForeColor = Color.Red;
+            errorLabel.Location = new Point(140, 457);
+            errorLabel.Name = "errorLabel";
+            errorLabel.Size = new Size(0, 15);
+            errorLabel.TabIndex = 20;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(834, 495);
+            Controls.Add(errorLabel);
             Controls.Add(groupBox3);
             Controls.Add(label1);
             Controls.Add(groupBox2);
@@ -387,5 +403,7 @@
         private RadioButton radioButton11;
         private RadioButton radioButton12;
         private OpenFileDialog openFileDialog1;
+        private FolderBrowserDialog folderBrowserDialog1;
+        private Label errorLabel;
     }
 }
