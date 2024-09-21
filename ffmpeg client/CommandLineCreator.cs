@@ -45,13 +45,21 @@ namespace ffmpeg_client
                 {
                     if (e.Data.Contains("Duration: "))
                     {
-                        string videoDuration = e.Data.Substring(e.Data.IndexOf("Duration: ") + 10, 11);
+                        string videoDuration = e.Data.Substring(e.Data.IndexOf("Duration: ") + 10, 8);
                         fullTimeToConvert = convertTimeStringToSeconds(videoDuration);
                     }
                     else if (e.Data.Contains("time="))
                     {
-                        string timeConverted = e.Data.Substring(e.Data.IndexOf("time=") + 5, 11);
-                        currentTimeConverted = convertTimeStringToSeconds(timeConverted);
+                        if (e.Data.Contains("time=N/A"))
+                        {
+                            UpdateLogs(1);
+                        }
+                        else
+                        {
+                            string timeConverted = e.Data.Substring(e.Data.IndexOf("time=") + 5, 8);
+                            currentTimeConverted = convertTimeStringToSeconds(timeConverted);
+                            UpdateLogs(2);
+                        }
                     }
                     else if (e.Data.Contains("encoded "))
                     {
@@ -74,7 +82,7 @@ namespace ffmpeg_client
 
         private double convertTimeStringToSeconds(string timeString)
         {
-            TimeSpan timeSpan = TimeSpan.ParseExact(timeString, @"hh\:mm\:ss\.ff", CultureInfo.InvariantCulture);
+            TimeSpan timeSpan = TimeSpan.ParseExact(timeString, @"hh\:mm\:ss", CultureInfo.InvariantCulture);
             double totalSeconds = timeSpan.TotalSeconds;
 
             return totalSeconds;
@@ -109,6 +117,10 @@ namespace ffmpeg_client
                     case 1:
                         form.logs.Text = "Error";
                         form.logs.ForeColor = Color.Red;
+                        break;
+                    case 2:
+                        form.logs.Text = "Converting in Progress...";
+                        form.logs.ForeColor = Color.Blue;
                         break;
                     default:
                         break;

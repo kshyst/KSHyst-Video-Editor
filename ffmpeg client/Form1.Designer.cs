@@ -47,7 +47,6 @@
             groupBox3 = new GroupBox();
             radioButton9 = new RadioButton();
             radioButton10 = new RadioButton();
-            radioButton11 = new RadioButton();
             openFileDialog1 = new OpenFileDialog();
             folderBrowserDialog1 = new FolderBrowserDialog();
             errorLabel = new Label();
@@ -289,7 +288,6 @@
             // 
             groupBox3.Controls.Add(radioButton9);
             groupBox3.Controls.Add(radioButton10);
-            groupBox3.Controls.Add(radioButton11);
             groupBox3.Location = new Point(424, 105);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(217, 64);
@@ -321,18 +319,6 @@
             radioButton10.Text = "mp4";
             radioButton10.UseVisualStyleBackColor = true;
             radioButton10.CheckedChanged += radioButton10_CheckedChanged;
-            // 
-            // radioButton11
-            // 
-            radioButton11.AutoSize = true;
-            radioButton11.Location = new Point(116, 38);
-            radioButton11.Name = "radioButton11";
-            radioButton11.RightToLeft = RightToLeft.No;
-            radioButton11.Size = new Size(40, 19);
-            radioButton11.TabIndex = 12;
-            radioButton11.Text = "avi";
-            radioButton11.UseVisualStyleBackColor = true;
-            radioButton11.CheckedChanged += radioButton11_CheckedChanged;
             // 
             // openFileDialog1
             // 
@@ -427,7 +413,6 @@
         private GroupBox groupBox3;
         private RadioButton radioButton9;
         private RadioButton radioButton10;
-        private RadioButton radioButton11;
         private OpenFileDialog openFileDialog1;
         private FolderBrowserDialog folderBrowserDialog1;
         private Label errorLabel;

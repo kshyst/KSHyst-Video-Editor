@@ -128,7 +128,7 @@ namespace ffmpeg_client
 
         public async void updateApplicationLogs(int mode)
         {
-            
+
         }
 
     }
