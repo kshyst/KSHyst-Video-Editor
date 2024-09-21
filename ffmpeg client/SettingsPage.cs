@@ -10,7 +10,17 @@ namespace ffmpeg_client
 {
     internal class SettingsPage
     {
+        private static SettingsPage Instance { get; set; }
         private int brightnessMode = 1;
+
+        private SettingsPage() { }
+
+        public static SettingsPage GetSettingsPage() 
+        { 
+            if (Instance == null)
+                Instance = new SettingsPage();
+            return Instance;
+        }
 
         public void setBrightnessMode( Form form)
         {

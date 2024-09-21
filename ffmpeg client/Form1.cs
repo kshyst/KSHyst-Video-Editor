@@ -2,8 +2,6 @@ namespace ffmpeg_client
 {
     public partial class Form1 : Form
     {
-        private SettingsPage settingsPage = new SettingsPage();
-
         private String fileLocation;
         private String outputLocation;
         private String outputFormat = "mp4";
@@ -13,7 +11,8 @@ namespace ffmpeg_client
         public Form1()
         {
             InitializeComponent();
-            settingsPage.initializeBrightnessMode(this);
+            SettingsPage.GetSettingsPage().initializeBrightnessMode(this);
+            CommandLineCreator.GetCommandLineCreator().ProgressBar = ConvertCompletedProgressBar;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,7 +30,6 @@ namespace ffmpeg_client
                 outputLocation = folderBrowserDialog1.SelectedPath;
             }
         }
-
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -53,8 +51,8 @@ namespace ffmpeg_client
                 return;
             }
 
-            string command = CommandLineCreator.CreateCommand(fileLocation, outputLocation, outputFormat, outputFPS, outputResolution);
-            CommandLineCreator.RunCommand(command);
+            string command = CommandLineCreator.GetCommandLineCreator().CreateCommand(fileLocation, outputLocation, outputFormat, outputFPS, outputResolution);
+            CommandLineCreator.GetCommandLineCreator().RunCommand(command);
         }
 
         public void setLogsText(string text)
@@ -124,7 +122,8 @@ namespace ffmpeg_client
 
         private void darkmodeLightmodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            settingsPage.setBrightnessMode(this);
+            SettingsPage.GetSettingsPage().setBrightnessMode(this);
         }
+
     }
 }

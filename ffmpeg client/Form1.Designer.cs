@@ -52,7 +52,7 @@
             folderBrowserDialog1 = new FolderBrowserDialog();
             errorLabel = new Label();
             logs = new Label();
-            progressBar1 = new ProgressBar();
+            ConvertCompletedProgressBar = new ProgressBar();
             menuStrip1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -358,13 +358,13 @@
             logs.TabIndex = 21;
             logs.Text = "Logs : ";
             // 
-            // progressBar1
+            // ConvertCompletedProgressBar
             // 
-            progressBar1.Location = new Point(127, 448);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(528, 35);
-            progressBar1.Step = 1;
-            progressBar1.TabIndex = 22;
+            ConvertCompletedProgressBar.Location = new Point(127, 448);
+            ConvertCompletedProgressBar.Name = "ConvertCompletedProgressBar";
+            ConvertCompletedProgressBar.Size = new Size(528, 35);
+            ConvertCompletedProgressBar.Step = 1;
+            ConvertCompletedProgressBar.TabIndex = 22;
             // 
             // Form1
             // 
@@ -372,7 +372,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(834, 495);
-            Controls.Add(progressBar1);
+            Controls.Add(ConvertCompletedProgressBar);
             Controls.Add(logs);
             Controls.Add(errorLabel);
             Controls.Add(groupBox3);
@@ -432,7 +432,7 @@
         private FolderBrowserDialog folderBrowserDialog1;
         private Label errorLabel;
         private Label logs;
-        private ProgressBar progressBar1;
+        private ProgressBar ConvertCompletedProgressBar;
         private ToolStripMenuItem darkmodeLightmodeToolStripMenuItem;
     }
 }

@@ -1,12 +1,27 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 
 namespace ffmpeg_client
 {
     internal class CommandLineCreator
     {
-        public static string CreateCommand(string inputLocation, string outputLocation, string outputFormat, string outputFPS, string outputResolution)
+        private static CommandLineCreator Instance { get; set; }
+        public ProgressBar ProgressBar { get; set; }
+        public double fullTimeToConvert = 1;
+        public double currentTimeConverted = 0;
+
+        private CommandLineCreator() { }
+
+        public static CommandLineCreator GetCommandLineCreator()
+        {
+            if(Instance == null)
+                Instance = new CommandLineCreator();
+            return Instance;
+        }
+
+        public string CreateCommand(string inputLocation, string outputLocation, string outputFormat, string outputFPS, string outputResolution)
         {
             string command = "ffmpeg -i \"" + inputLocation + "\" -r \"" + outputFPS + "\" -vf \"scale = -2:" + outputResolution + "\" -c:v libx265 -crf 32 -c:a libopus -b:a 96K -strict experimental -max_muxing_queue_size 1024 \"" +
                 outputLocation + "\\output." + outputFormat + "\" -y";
@@ -14,7 +29,7 @@ namespace ffmpeg_client
             return command;
         }
 
-        public static void RunCommand(string command)
+        public void RunCommand(string command)
         {
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -24,40 +39,57 @@ namespace ffmpeg_client
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
 
-            // Event handlers for capturing real-time output
-            process.OutputDataReceived += new DataReceivedEventHandler((sender, e) =>
-            {
-                if (!string.IsNullOrEmpty(e.Data))
-                {
-                    // Output to console
-                    Console.WriteLine(e.Data);
-
-                    // Optionally, write to a file in real-time
-                    File.AppendAllText("C:\\Users\\KSHyst\\Desktop\\x.txt", e.Data + Environment.NewLine);
-                }
-            });
-
             process.ErrorDataReceived += new DataReceivedEventHandler((sender, e) =>
             {
                 if (!string.IsNullOrEmpty(e.Data))
                 {
-                    // Output error to console
-                    Console.WriteLine("Error: " + e.Data);
+                    if (e.Data.Contains("Duration: "))
+                    {
+                        string videoDuration = e.Data.Substring(e.Data.IndexOf("Duration: ") + 10, 11);
+                        //File.AppendAllText("C:\\Users\\KSHyst\\Desktop\\x.txt", videoDuration + Environment.NewLine);
 
-                    // Optionally, write error to a file in real-time
-                    File.AppendAllText("C:\\Users\\KSHyst\\Desktop\\x.txt", "Error: " + e.Data + Environment.NewLine);
+                        fullTimeToConvert = convertTimeStringToSeconds(videoDuration);
+                    }
+                    else if (e.Data.Contains("time="))
+                    {
+                        //File.AppendAllText("C:\\Users\\KSHyst\\Desktop\\x.txt", e.Data.Substring(e.Data.IndexOf("time=") + 5, 11));
+
+                        string timeConverted = e.Data.Substring(e.Data.IndexOf("time=") + 5, 11);
+                        currentTimeConverted = convertTimeStringToSeconds(timeConverted);
+                    }
+
+                    //TODO
+                    //UpdateProgressBar();
                 }
             });
 
-            // Start the process
             process.Start();
 
-            // Begin reading output asynchronously
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
 
-            // Wait for the process to exit
             process.WaitForExit();
+        }
+
+        private static double convertTimeStringToSeconds(string timeString)
+        {
+            TimeSpan timeSpan = TimeSpan.ParseExact(timeString, @"hh\:mm\:ss\.ff", CultureInfo.InvariantCulture);
+
+            double totalSeconds = timeSpan.TotalSeconds;
+
+            return totalSeconds;
+        }
+
+        private void UpdateProgressBar()
+        {
+            if (ProgressBar.InvokeRequired)
+            {
+                ProgressBar.Invoke(new Action(UpdateProgressBar));
+            }
+            else
+            {
+                ProgressBar.Value = Convert.ToInt32(currentTimeConverted / fullTimeToConvert * 100);
+            }
         }
     }
 }
