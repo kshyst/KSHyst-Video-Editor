@@ -217,7 +217,7 @@
             // textBox2
             // 
             textBox2.Enabled = false;
-            textBox2.Location = new Point(12, 412);
+            textBox2.Location = new Point(12, 214);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(514, 23);
             textBox2.TabIndex = 14;
@@ -227,7 +227,7 @@
             button2.BackColor = SystemColors.ActiveCaption;
             button2.FlatAppearance.BorderColor = Color.FromArgb(64, 0, 64);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(549, 397);
+            button2.Location = new Point(549, 205);
             button2.Name = "button2";
             button2.Size = new Size(106, 38);
             button2.TabIndex = 15;
@@ -279,7 +279,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 381);
+            label1.Location = new Point(12, 183);
             label1.Name = "label1";
             label1.Size = new Size(136, 28);
             label1.TabIndex = 19;
@@ -352,7 +352,7 @@
             // logs
             // 
             logs.AutoSize = true;
-            logs.Location = new Point(24, 211);
+            logs.Location = new Point(12, 418);
             logs.Name = "logs";
             logs.Size = new Size(41, 15);
             logs.TabIndex = 21;
@@ -431,7 +431,7 @@
         private OpenFileDialog openFileDialog1;
         private FolderBrowserDialog folderBrowserDialog1;
         private Label errorLabel;
-        private Label logs;
+        public Label logs;
         private ProgressBar ConvertCompletedProgressBar;
         private ToolStripMenuItem darkmodeLightmodeToolStripMenuItem;
     }

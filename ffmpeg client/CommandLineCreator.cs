@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
 using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 
 namespace ffmpeg_client
 {
@@ -9,8 +8,9 @@ namespace ffmpeg_client
     {
         private static CommandLineCreator Instance { get; set; }
         public ProgressBar ProgressBar { get; set; }
-        public double fullTimeToConvert = 1;
-        public double currentTimeConverted = 0;
+        public Form1 form { get; set; }
+        private double fullTimeToConvert = 1;
+        private double currentTimeConverted = 0;
 
         private CommandLineCreator() { }
 
@@ -46,19 +46,20 @@ namespace ffmpeg_client
                     if (e.Data.Contains("Duration: "))
                     {
                         string videoDuration = e.Data.Substring(e.Data.IndexOf("Duration: ") + 10, 11);
-                        //File.AppendAllText("C:\\Users\\KSHyst\\Desktop\\x.txt", videoDuration + Environment.NewLine);
-
                         fullTimeToConvert = convertTimeStringToSeconds(videoDuration);
                     }
                     else if (e.Data.Contains("time="))
                     {
-                        //File.AppendAllText("C:\\Users\\KSHyst\\Desktop\\x.txt", e.Data.Substring(e.Data.IndexOf("time=") + 5, 11));
-
                         string timeConverted = e.Data.Substring(e.Data.IndexOf("time=") + 5, 11);
                         currentTimeConverted = convertTimeStringToSeconds(timeConverted);
                     }
+                    else if (e.Data.Contains("encoded "))
+                    {
+                        fullTimeToConvert = 1;
+                        currentTimeConverted = 0;
+                        UpdateLogs(0);
+                    }
 
-                    //TODO
                     UpdateProgressBar();
                 }
             });
@@ -71,7 +72,7 @@ namespace ffmpeg_client
             await process.WaitForExitAsync();
         }
 
-        private static double convertTimeStringToSeconds(string timeString)
+        private double convertTimeStringToSeconds(string timeString)
         {
             TimeSpan timeSpan = TimeSpan.ParseExact(timeString, @"hh\:mm\:ss\.ff", CultureInfo.InvariantCulture);
             double totalSeconds = timeSpan.TotalSeconds;
@@ -88,6 +89,30 @@ namespace ffmpeg_client
             else
             {
                 ProgressBar.Value = Convert.ToInt32(currentTimeConverted / fullTimeToConvert * 100);
+            }
+        }
+
+        private void UpdateLogs(int mode)
+        {
+            if(form.InvokeRequired)
+            {
+                form.Invoke(new Action(() => UpdateLogs(mode)));
+            }
+            else
+            {
+                switch (mode)
+                {
+                    case 0:
+                        form.logs.Text = "Conversion Successful";
+                        form.logs.ForeColor = Color.Green;
+                        break;
+                    case 1:
+                        form.logs.Text = "Error";
+                        form.logs.ForeColor = Color.Red;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

@@ -13,6 +13,7 @@ namespace ffmpeg_client
             InitializeComponent();
             SettingsPage.GetSettingsPage().initializeBrightnessMode(this);
             CommandLineCreator.GetCommandLineCreator().ProgressBar = ConvertCompletedProgressBar;
+            CommandLineCreator.GetCommandLineCreator().form = this;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -123,6 +124,11 @@ namespace ffmpeg_client
         private void darkmodeLightmodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SettingsPage.GetSettingsPage().setBrightnessMode(this);
+        }
+
+        public async void updateApplicationLogs(int mode)
+        {
+            
         }
 
     }
