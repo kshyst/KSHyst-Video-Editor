@@ -29,7 +29,7 @@ namespace ffmpeg_client
             return command;
         }
 
-        public void RunCommand(string command)
+        public async Task RunCommand(string command)
         {
             Process process = new Process();
             process.StartInfo.FileName = "cmd.exe";
@@ -59,7 +59,7 @@ namespace ffmpeg_client
                     }
 
                     //TODO
-                    //UpdateProgressBar();
+                    UpdateProgressBar();
                 }
             });
 
@@ -68,13 +68,12 @@ namespace ffmpeg_client
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
 
-            process.WaitForExit();
+            await process.WaitForExitAsync();
         }
 
         private static double convertTimeStringToSeconds(string timeString)
         {
             TimeSpan timeSpan = TimeSpan.ParseExact(timeString, @"hh\:mm\:ss\.ff", CultureInfo.InvariantCulture);
-
             double totalSeconds = timeSpan.TotalSeconds;
 
             return totalSeconds;

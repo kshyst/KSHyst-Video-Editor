@@ -37,7 +37,7 @@ namespace ffmpeg_client
             fileLocation = openFileDialog1.FileName;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
             if (fileLocation == null)
             {
@@ -52,7 +52,7 @@ namespace ffmpeg_client
             }
 
             string command = CommandLineCreator.GetCommandLineCreator().CreateCommand(fileLocation, outputLocation, outputFormat, outputFPS, outputResolution);
-            CommandLineCreator.GetCommandLineCreator().RunCommand(command);
+            await CommandLineCreator.GetCommandLineCreator().RunCommand(command);
         }
 
         public void setLogsText(string text)
