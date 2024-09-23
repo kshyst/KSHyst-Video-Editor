@@ -393,7 +393,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
-        private Button button1;
+        public Button button1;
         private TextBox textBox1;
         private Label label2;
         private RadioButton radioButton1;
@@ -405,7 +405,7 @@
         private RadioButton radioButton7;
         private RadioButton radioButton8;
         private TextBox textBox2;
-        private Button button2;
+        public Button button2;
         private Button button3;
         private GroupBox groupBox1;
         private GroupBox groupBox2;

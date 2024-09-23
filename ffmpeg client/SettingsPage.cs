@@ -17,7 +17,7 @@ namespace ffmpeg_client
             return Instance;
         }
 
-        public void setBrightnessMode( Form form)
+        public void setBrightnessMode( Form1 form)
         {
             if (brightnessMode == 0)
             {
@@ -30,29 +30,45 @@ namespace ffmpeg_client
 
             if (brightnessMode == 0)
             {
-                form.BackColor = SystemColors.ActiveCaption;
+                activateLightMode(form);
             }
             else
             {
-                form.BackColor = Color.FromArgb(64, 64, 64);
+                activateDarkMode(form);
             }
 
             SettingsSave.save(new SettingsSave(brightnessMode));
 
         }
 
-        public void initializeBrightnessMode(Form form)
+        public void initializeBrightnessMode(Form1 form)
         {
             brightnessMode = SettingsSave.load().brightnessMode;
 
             if (brightnessMode == 0)
             {
-                form.BackColor = SystemColors.ActiveCaption;
+                activateLightMode(form);
             }
             else
             {
-                form.BackColor = Color.FromArgb(64, 64, 64);
+                activateDarkMode(form);
             }
+        }
+
+        private void activateLightMode(Form1 form)
+        {
+            form.BackColor = SystemColors.ActiveCaption;
+            form.ForeColor = Color.Black;
+            form.button1.BackColor = SystemColors.ActiveCaption;
+            form.button2.BackColor = SystemColors.ActiveCaption;
+        }
+
+        private void activateDarkMode(Form1 form)
+        {
+            form.BackColor = Color.FromArgb(64, 64, 64);
+            form.ForeColor = Color.White;
+            form.button1.BackColor = Color.FromArgb(64, 64, 64);
+            form.button2.BackColor = Color.FromArgb(64, 64, 64);
         }
     }
 
